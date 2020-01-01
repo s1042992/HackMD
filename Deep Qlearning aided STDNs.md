@@ -1,5 +1,5 @@
 # Deep Q-Learning Aided Networking,Caching, and Computing Resources Allocationin Software-Defined Satellite-Terrestrial Networks
-
+###### tags: `paper summary` `software engineering` `machine learning` `Q-Learning` 
 ## 題目動機
 
   使用軟體定義網路架構(SDN)下的衛星與地面網路(satellite-terrestrial networks (STNs))的趨勢已日益漸增，而實作STN要考慮的因素例如有：建網(Networking)，快取(caching)，運算(computing)，等等。本篇將這些聯合資源分配的問題視作聯合優化(joint optimization)的問題，但若是每次將這些因素進行運算的話，所耗費的空間與時間成本會太高，因此本篇透過DQN的方式來達到目的。
