@@ -1,4 +1,5 @@
-# Aspect-oriented programming ()
+# Aspect-oriented programming 
+###### tags: paper summary, software engineering
 ## Summary:
   本篇作者認為當前的OOP (object-oriented programming)與procedural approach都不足以明確的表達一些程式中必須要執行的重要設計，有時會發生Cross-cutting，例如在執行一個功能前還要先進行權限檢查，或著在執行功能的前後必須紀錄log，等等。這些不屬於原本此功能的部分在程式碼中交互地被呼叫，使得程式碼實際上是互相糾結在一起，這會讓程式碼在日後開發及維護上造成不便。因此作者提出AOP (aspect-oriented programming)的設計概念，也就是允許開發人員在程式執行期間加入一些服務，例如安全檢查或是log紀錄，以降低或省去開發人員編寫這些程式的成本。作者在本篇定義了兩個重要的概念：component與aspect。在本篇的定義下如果一件事情可以被清楚的被封裝在一個generalized procedure的話，就叫做component，譬如物件、方法、API，等等。反之，若一件事情沒辦法像component一樣被清楚封裝在generalized procedure的話，就叫做aspect，aspect往往不是一個系統中能被拆解的單位，通常是一個屬性用以影響component的性能或語意，例如：記憶體存取模式以及同步物件。因此aspect主要就是將各個cross-cutting concern集合起來，設計為各個獨立且可重用的物件。AOP中的join point是指程式執行中的時間點，可以是一個函式的呼叫、或是建立物件的時間點，等等。而aspect由pointcut與advice組成，pointcut是一個描述資訊，用來修飾join point的，這樣我們就能知道那些joint point可以被織入advice，也就是只接受滿足point cut要求的joint point。而weaver是用來織合aspect language(AOP中用來寫aspect的語言，可對數據流圖中的節點進行簡單的操作)與component language(AOP中用來寫component的語言，用來實作程式的功能並且避免與aspect language負責控制的部分隔開來)的，依據織合時間點的不同，可以分為runtime weaving與compile-time weaving。作者在本篇論文中主要使用兩個例子來解釋並分析使用AOP架構的程式，並且認為使用AOP架構能夠比單純使用OOP的架構來的更好開發與維護，因為AOP架構有著更明確的設計，能夠清楚明白該物件的關注點，能將核心關注點中分離出橫切關注點，讓特定的問題或是該被額外處理的步驟從業務邏輯中獨立出來。但截至作者發表論文時，還沒有一個大型、複雜的程式使用AOP的概念進行開發，不過作者認為AOP一定可以達到比傳統OOP更好的效率，也期盼開發中的公司團體與學術界在結束使用AOP開發後能提供開發後的各數據，讓整篇論文更加完善。
 
